@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css">
+</head>
+<body>
+    <div class="background">
+        <div class="content">
+            <form id="weatherForm">
+                <div class="autocomplete-container">
+                    <input type="text" id="city-input" name="city" placeholder="Enter city name">
+                    <button type="button" id="getWeatherButton">Get Weather</button>
+                </div>
+            </form>
+            <div id="weatherInfo"></div>
+        </div>
+        <div id="forecast" style="display: none;">
+            <div class="forecast-day">
+                <p><span id="day1_count"></span></p>
+                <p><span id="day1"></span> °C</p>
+            </div>
+            <div class="forecast-day">
+                <p><span id="day2_count"></span></p>
+                <p><span id="day2"></span> °C</p>
+            </div>
+            <div class="forecast-day">
+                <p><span id="day3_count"></span></p>
+                <p><span id="day3"></span> °C</p>
+            </div>
+            <div class="forecast-day">
+                <p><span id="day4_count"></span></p>
+                <p><span id="day4"></span> °C</p>
+            </div>
+            <div class="forecast-day">
+                <p><span id="day5_count"></span></p>
+                <p><span id="day5"></span> °C</p>
+            </div>
+        </div>
+        <div class="moving-images">
+            <img src="{{ url_for('static', filename='images/image1.png') }}" class="moving-image image1" alt="Image 1">
+            <img src="{{ url_for('static', filename='images/image2.png') }}" class="moving-image image2" alt="Image 2">
+            <img src="{{ url_for('static', filename='images/image3.png') }}" class="moving-image image3" alt="Image 3">
+            <img src="{{ url_for('static', filename='images/image1.png') }}" class="moving-image image4" alt="Image 4">
+            <img src="{{ url_for('static', filename='images/image2.png') }}" class="moving-image image5" alt="Image 5">
+            <img src="{{ url_for('static', filename='images/image3.png') }}" class="moving-image image6" alt="Image 6">
+        </div>
+    </div>
+
+    <!-- jQuery and jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+body, html {
+    height: 100%;
+    max-height:100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.background {
+    background-image: url('../images/sky-texture.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Добавлено для правильного позиционирования движущихся изображений */
+}
+
+.content {
+    text-align: center;
+    position: relative;
+    z-index: 10; /* Поверх изображений */
+}
+
+form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#weatherInfo{
+    position: relative;
+    top:-200px
+}
+day_weather{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top:100px;
+    left: 100px;
+}
+
+
+form button {
+    padding: 10px 20px; /* Увеличиваем отступы, чтобы сделать кнопку выше */
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+.moving-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Скрываем изображения, которые выходят за пределы контейнера */
+    pointer-events: none; /* Чтобы изображения не мешали кликам на другие элементы */
+}
+
+.moving-image {
+    position: absolute;
+    overflow: hidden;
+}
+
+
+
+/* Позиции и анимации для каждого изображения */
+.image1 {
+    top: 100px;
+    left: -100px; /* Начальная позиция слева за пределами экрана */
+    width: 150px;
+    height: 100px;
+    animation: moveLeftRight1 25s linear infinite;
+}
+
+.image2 {
+    top: 200px;
+    left: -100px; /* Начальная позиция слева за пределами экрана */
+
+    height: 150px;
+    animation: moveLeftRight2 30s linear infinite;
+}
+
+.image6 {
+    top: 350px;
+    left: -10px; /* Начальная позиция слева за пределами экрана */
+
+    height: 200px;
+    animation: moveLeftRight3 25s linear infinite;
+}
+
+.image4 {
+    top: 500px;
+    left: -100px; /* Начальная позиция слева за пределами экрана */
+
+    height: 250px;
+    animation: moveLeftRight4 30s linear infinite;
+}
+
+.image5 {
+    top: 650px;
+    left:-50px;
+    height: 120px;
+    animation: moveLeftRight5 55s linear infinite;
+}
+
+.image3 {
+    left:-100px;
+    top: 500px;
+    height: 180px;
+    animation: moveLeftRight6 22s linear infinite;
+}
+
+/* Ключевые кадры для анимации каждого изображения */
+@keyframes moveLeftRight1 {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(100% + 1500px)); }
+}
+
+@keyframes moveLeftRight2 {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(100% + 1400px)); }
+}
+
+@keyframes moveLeftRight3 {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(100% + 2200px)); }
+}
+
+@keyframes moveLeftRight4 {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(100% + 1500px)); }
+}
+
+@keyframes moveLeftRight5 {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(100% + 1400px)); }
+}
+
+@keyframes moveLeftRight6 {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(100% + 1600px)); }
+}
+#forecast {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    position: absolute;
+    top: 50px;
+}
+
+.forecast-day {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(10, 0, 0, 0.1);
+    width: 18%;
+    height: 200px;
+    text-align: center;
+    z-index: 10;
+    margin: 0 10px; /* Добавляет расстояние между колонками */
+}
+ .forecast-day img {
+            width: 100px; /* Установите размер изображения по вашему выбору */
+            height: auto;
+            display: block;
+            margin-top: 20px;
+        }
+.autocomplete-container {
+    position: relative;
+}
+
+.awesomplete {
+    position: absolute;
+    bottom: 100%; /* Позиционируем список выше поля ввода */
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: white;
+    border: 1px solid #ccc;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.awesomplete > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.awesomplete > ul > li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.awesomplete > ul > li:hover {
+    background: #eee;
+}
+
